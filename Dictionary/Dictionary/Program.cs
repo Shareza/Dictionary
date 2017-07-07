@@ -10,7 +10,10 @@ namespace Dictionary
     {
         static void Main(string[] args)
         {
-            
+            Dictionary myDic = new Dictionary();
+            myDic.Print();
+
+            Console.ReadKey();
         }
     }
 }
