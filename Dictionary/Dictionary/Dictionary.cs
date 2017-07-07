@@ -12,21 +12,17 @@ namespace Dictionary
     {
         static string path = @"../../MyDictionary.txt";
         private string text = string.Empty;
-        
+        Dictionary<string, int> Collection = new Dictionary<string, int>();
+
 
         public Dictionary()
         {
-            Dictionary<string, int> Collection = new Dictionary<string, int>();
+            
             StreamReader textReader = new StreamReader(path);
             this.text = textReader.ReadToEnd();
 
             
             textReader.Close();
-        }
-
-        public void Fill()
-        {
-            
         }
 
         public void Print()
@@ -49,6 +45,15 @@ namespace Dictionary
             foreach (var word in SeparateWords(ReplaceMarks()))
             {
                 Console.WriteLine(word);
+
+                if (Collection.ContainsKey(word))
+                {
+                    Collection[word]++;
+                }
+                else
+                {
+                    Collection.Add(word,1);
+                }
             }
         }
 
@@ -59,6 +64,24 @@ namespace Dictionary
             string textC = textB.Replace(";", " ");
             string finalText = textC.Replace(":", " ");
             return finalText.Trim();
+        }
+
+        public void PrintDictionary()
+        {
+
+            foreach (var pair in Collection)
+            {
+                if (pair.Value == 1)
+                {
+                    Console.WriteLine($"Word \t[{pair.Key, 20}]\t\t was used\t [{pair.Value}]\t time.");
+                }
+                else Console.WriteLine($"Word \t[{pair.Key, 20}]\t\t was used\t [{pair.Value}]\t times.");
+            }
+        }
+
+        public void SortCollection()
+        {
+            
         }
 
 

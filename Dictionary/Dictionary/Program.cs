@@ -14,6 +14,7 @@ namespace Dictionary
             myDic.ReplaceMarks();
             myDic.SeparateWords(myDic.ReplaceMarks());
             myDic.PrintSeparatedWords();
+            myDic.PrintDictionary();
 
             Console.ReadKey();
         }
