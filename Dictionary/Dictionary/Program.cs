@@ -11,7 +11,9 @@ namespace Dictionary
         static void Main(string[] args)
         {
             Dictionary myDic = new Dictionary();
-            myDic.Print();
+            myDic.ReplaceMarks();
+            myDic.SeparateWords(myDic.ReplaceMarks());
+            myDic.PrintSeparatedWords();
 
             Console.ReadKey();
         }

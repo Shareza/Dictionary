@@ -19,6 +19,8 @@ namespace Dictionary
             Dictionary<string, int> Collection = new Dictionary<string, int>();
             StreamReader textReader = new StreamReader(path);
             this.text = textReader.ReadToEnd();
+
+            
             textReader.Close();
         }
 
@@ -33,6 +35,30 @@ namespace Dictionary
             {
                Console.Write(word);
             }
+        }
+
+        public string[] SeparateWords(string text)
+        {
+
+            string[] words = text.Split(' ');
+            return words;
+        }
+
+        public void PrintSeparatedWords()
+        {
+            foreach (var word in SeparateWords(ReplaceMarks()))
+            {
+                Console.WriteLine(word);
+            }
+        }
+
+        public string ReplaceMarks()
+        {
+            string textA = text.Replace(@".", @" ");
+            string textB = textA.Replace(",", " ");
+            string textC = textB.Replace(";", " ");
+            string finalText = textC.Replace(":", " ");
+            return finalText.Trim();
         }
 
 
