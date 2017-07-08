@@ -62,7 +62,8 @@ namespace Dictionary
             string textA = text.Replace(@".", @" ");
             string textB = textA.Replace(",", " ");
             string textC = textB.Replace(";", " ");
-            string finalText = textC.Replace(":", " ");
+            string textD = textC.Replace("”", " ");
+            string finalText = textD.Replace(":", " ");
             return finalText.Trim();
         }
 
@@ -72,10 +73,13 @@ namespace Dictionary
             foreach (var pair in Collection)
             {
                 if (pair.Value == 1)
+
+
+
                 {
-                    Console.WriteLine($"Word \t[{pair.Key, 20}]\t\t was used\t [{pair.Value}]\t time.");
+                    Console.WriteLine($"[{pair.Key, 20}]\t [{pair.Value}] time.");
                 }
-                else Console.WriteLine($"Word \t[{pair.Key, 20}]\t\t was used\t [{pair.Value}]\t times.");
+                else Console.WriteLine($"[{pair.Key, 20}]\t [{pair.Value}] times.");
             }
         }
 
