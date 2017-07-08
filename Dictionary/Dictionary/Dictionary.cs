@@ -59,7 +59,7 @@ namespace Dictionary
 
         public string ReplaceMarks()
         {
-            string textA = text.Replace(@".", @" ");
+            string textA = text.Replace(".", " ");
             string textB = textA.Replace(",", " ");
             string textC = textB.Replace(";", " ");
             string textD = textC.Replace("”", " ");
@@ -74,8 +74,6 @@ namespace Dictionary
             {
                 if (pair.Value == 1)
 
-
-
                 {
                     Console.WriteLine($"[{pair.Key, 20}]\t [{pair.Value}] time.");
                 }
@@ -86,6 +84,11 @@ namespace Dictionary
         public void SortCollection()
         {
             
+            foreach (KeyValuePair<string, int> pair  in Collection.OrderByDescending(key => key.Value))
+            {
+                Console.WriteLine($"{pair.Key}, {pair.Value}");
+            }
+
         }
 
 
